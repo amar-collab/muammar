@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🍍 Buah Desa Nusantara</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#064e3b,#14532d,#78350f);
+    color:white;
+    overflow-x:hidden;
+    transition:0.4s;
+}
+
+/* DARK MODE */
+
+.dark{
+    background:
+    linear-gradient(
+        135deg,
+        #020617,
+        #111827,
+        #000000
+    );
+}
+
+.dark-box{
+    background:
+    rgba(15,23,42,0.85) !important;
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    padding:20px 8%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#facc15;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+}
+
+/* HERO */
+
+.hero{
+    min-height:90vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ),
+
+    url('https://images.pexels.com/photos/13495149/pexels-photo-13495149.jpeg');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:65px;
+    color:#fef08a;
+}
+
+.hero p{
+    margin:20px 0;
+    font-size:20px;
+}
+
+.hero button{
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #f59e0b,
+        #b0e848
+    );
+
+    color:white;
+
+    cursor:pointer;
+}
+
+/* SECTION */
+
+.section{
+    padding:70px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:40px;
+    margin-bottom:40px;
+    color:#fde047;
+}
+
+/* SEARCH */
+
+.search-box{
+    display:flex;
+    justify-content:center;
+    margin-bottom:30px;
+}
+
+.search-box input{
+    width:350px;
+    padding:15px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,0.1);
+
+    color:white;
+
+    outline:none;
+}
+
+/* FILTER */
+
+.filter{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:40px;
+}
+
+.filter button{
+    padding:10px 20px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#14532d;
+
+    color:white;
+
+    cursor:pointer;
+}
+
+/* PRODUK */
+
+.products{
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(250px,1fr)
+    );
+
+    gap:25px;
+}
+
+.card{
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.price{
+    color:#fde047;
+    margin:10px 0;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.buy{
+    width:100%;
+    padding:12px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #22c56970,
+        #eab308
+    );
+
+    color:white;
+
+    cursor:pointer;
+}
+
+/* STATISTIK */
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(200px,1fr)
+    );
+
+    gap:20px;
+}
+
+.stat{
+    background:
+    rgba(255,255,255,0.08);
+
+    padding:30px;
+
+    border-radius:20px;
+
+    text-align:center;
+}
+
+.stat h2{
+    font-size:45px;
+    color:#fde047;
+}
+
+/* TESTIMONI */
+
+.testi{
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(280px,1fr)
+    );
+
+    gap:20px;
+}
+
+.testi-card{
+    background:
+    rgba(255,255,255,0.08);
+
+    padding:25px;
+
+    border-radius:20px;
+}
+
+/* KONTAK */
+
+.contact{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.contact-box{
+    background:
+    rgba(255,255,255,0.08);
+
+    padding:25px;
+
+    border-radius:20px;
+}
+
+iframe{
+    width:100%;
+    height:320px;
+
+    border:none;
+
+    border-radius:20px;
+}
+
+/* ADMIN */
+
+.admin{
+    position:fixed;
+
+    right:15px;
+    bottom:15px;
+
+    width:190px;
+
+    background:
+    rgba(255,255,255,0.10);
+
+    backdrop-filter:blur(15px);
+
+    padding:20px;
+
+    border-radius:25px;
+
+    border:
+    1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.3);
+
+    z-index:999;
+
+    text-align:center;
+}
+
+.admin h2{
+    font-size:22px;
+}
+
+.admin h1{
+    font-size:42px;
+    color:#fde047;
+}
+
+.admin button{
+    width:100%;
+
+    padding:10px;
+
+    margin-top:10px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #22c55e,
+        #16a34a
+    );
+
+    color:white;
+
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,0.4);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+    gap:15px;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.contact{
+    grid-template-columns:1fr;
+}
+
+.admin{
+    width:90%;
+    right:5%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+🍍 Buah Desa ujong pie
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#produk">Produk</a></li>
+<li><a href="#kontak">Kontak</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div>
+
+<h1>
+Buah Segar Dari Desa
+</h1>
+
+<p>
+Buah lokal Aceh segar, organik, dan berkualitas premium.
+</p>
+
+<button
+onclick="document.getElementById('produk').scrollIntoView()">
+
+Belanja Sekarang
+
+</button>
+
+</div>
+
+</section>
+
+<!-- PRODUK -->
+
+<section class="section" id="produk">
+
+<h1 class="title">
+🍊 Katalog Buah
+</h1>
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+<input type="text"
+id="search"
+placeholder="Cari buah...">
+
+</div>
+
+<!-- FILTER -->
+
+<div class="filter">
+
+<button onclick="filterBuah('all')">
+Semua
+</button>
+
+<button onclick="filterBuah('Durian')">
+Durian
+</button>
+
+<button onclick="filterBuah('Mangga')">
+Mangga
+</button>
+
+<button onclick="filterBuah('Jeruk')">
+Jeruk
+</button>
+
+<button onclick="filterBuah('Pisang')">
+Pisang
+</button>
+
+</div>
+
+<!-- PRODUK -->
+
+<div class="products">
+
+<!-- DURIAN -->
+
+<div class="card" data-name="Durian">
+
+<img src="https://images.pexels.com/photos/19270640/pexels-photo-19270640.jpeg">
+
+<div class="card-content">
+
+<h3>Durian Premium</h3>
+
+<div class="price">
+Rp 85.000
+</div>
+
+<button class="buy"
+onclick="beli('Durian Premium')">
+
+Beli WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+<!-- MANGGA -->
+
+<div class="card" data-name="Mangga">
+
+<img src="https://images.pexels.com/photos/16620442/pexels-photo-16620442.jpeg">
+
+<div class="card-content">
+
+<h3>Mangga Harum</h3>
+
+<div class="price">
+Rp 15.000
+</div>
+
+<button class="buy"
+onclick="beli('Mangga Harum')">
+
+Beli WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+<!-- JERUK -->
+
+<div class="card" data-name="Jeruk">
+
+<img src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<h3>Jeruk Segar</h3>
+
+<div class="price">
+Rp 28.000
+</div>
+
+<button class="buy"
+onclick="beli('Jeruk Segar')">
+
+Beli WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+<!-- PISANG -->
+
+<div class="card" data-name="Pisang">
+
+<img src="https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=1200&auto=format&fit=crop">
+
+<div class="card-content">
+
+<h3>Pisang Desa</h3>
+
+<div class="price">
+Rp 20.000
+</div>
+
+<button class="buy"
+onclick="beli('Pisang Desa')">
+
+Beli WhatsApp
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATISTIK -->
+
+<section class="section">
+
+<h1 class="title">
+📈 Statistik Panen
+</h1>
+
+<div class="stats">
+
+<div class="stat">
+<h2>12T</h2>
+<p>Panen Durian</p>
+</div>
+
+<div class="stat">
+<h2>8T</h2>
+<p>Panen Mangga</p>
+</div>
+
+<div class="stat">
+<h2>350+</h2>
+<p>Pelanggan</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONI -->
+
+<section class="section">
+
+<h1 class="title">
+💬 Testimoni
+</h1>
+
+<div class="testi">
+
+<div class="testi-card">
+⭐⭐⭐⭐⭐ <br><br>
+“Buah sangat segar.”
+</div>
+
+<div class="testi-card">
+⭐⭐⭐⭐⭐ <br><br>
+“Durian premium mantap!”
+</div>
+
+</div>
+
+</section>
+
+<!-- KONTAK -->
+
+<section class="section" id="kontak">
+
+<h1 class="title">
+📍 Kontak & Lokasi
+</h1>
+
+<div class="contact">
+
+<div class="contact-box">
+
+<h3>📞 Kontak Petani</h3>
+
+<p>WhatsApp: 0895611529242</p>
+
+<p>Email: buahdesa@gmail.com</p>
+
+<p>Aceh, Indonesia</p>
+
+<br>
+
+<button
+onclick="darkMode()"
+style="
+padding:14px 20px;
+border:none;
+border-radius:15px;
+background:#22c55e;
+color:white;
+cursor:pointer;
+font-weight:bold;
+">
+
+🌙 Dark Mode
+
+</button>
+
+</div>
+
+<div class="contact-box">
+
+<iframe
+src="https://maps.google.com/maps?q=aceh&t=&z=8&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ADMIN -->
+
+<div class="admin">
+
+<h2>
+📦 Pesanan
+</h2>
+
+<h1 id="totalOrder">
+0
+</h1>
+
+<button onclick="lihatPesanan()">
+Lihat Pesanan
+</button>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+© 2026 Buah Desa Nusantara
+
+</footer>
+
+<script>
+
+/* DATA */
+
+let totalOrder = 0;
+
+let daftarPesanan = [];
+
+/* BELI */
+
+function beli(nama){
+
+    totalOrder++;
+
+    document.getElementById("totalOrder")
+    .innerHTML = totalOrder;
+
+    daftarPesanan.push(nama);
+
+    let nomor = "62895611529242";
+
+    let pesan =
+    "Halo admin, saya ingin membeli " + nama;
+
+    window.open(
+        `https://wa.me/${nomor}?text=${pesan}`,
+        "_blank"
+    );
+
+}
+
+/* LIHAT PESANAN */
+
+function lihatPesanan(){
+
+    if(daftarPesanan.length == 0){
+
+        alert("Belum ada pesanan");
+
+        return;
+
+    }
+
+    let hasil =
+    "DAFTAR PESANAN\n\n";
+
+    daftarPesanan.forEach((item,index)=>{
+
+        hasil +=
+        (index + 1) +
+        ". " +
+        item +
+        "\n";
+
+    });
+
+    alert(hasil);
+
+}
+
+/* SEARCH */
+
+document.getElementById("search")
+.addEventListener("keyup",function(){
+
+    let value =
+    this.value.toLowerCase();
+
+    let cards =
+    document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+
+        let nama =
+        card.dataset.name.toLowerCase();
+
+        if(nama.includes(value)){
+
+            card.style.display = "block";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
+/* FILTER */
+
+function filterBuah(kategori){
+
+    let cards =
+    document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+
+        if(
+            kategori == "all" ||
+            card.dataset.name == kategori
+        ){
+
+            card.style.display = "block";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+/* DARK MODE */
+
+function darkMode(){
+
+    document.body
+    .classList.toggle("dark");
+
+    document.querySelector("nav")
+    .classList.toggle("dark-box");
+
+    document.querySelectorAll(".card")
+    .forEach(card=>{
+
+        card.classList.toggle("dark-box");
+
+    });
+
+    document.querySelectorAll(".stat")
+    .forEach(stat=>{
+
+        stat.classList.toggle("dark-box");
+
+    });
+
+    document.querySelectorAll(".testi-card")
+    .forEach(item=>{
+
+        item.classList.toggle("dark-box");
+
+    });
+
+    document.querySelectorAll(".contact-box")
+    .forEach(box=>{
+
+        box.classList.toggle("dark-box");
+
+    });
+
+    document.querySelector(".admin")
+    .classList.toggle("dark-box");
+
+    document.querySelector("footer")
+    .classList.toggle("dark-box");
+
+}
+
+</script>
+
+</body>
+</html>
